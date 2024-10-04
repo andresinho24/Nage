@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ti, Mi Querida Nagelyy</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: 'Arial', sans-serif;
+            background: #FFFCF9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        header {
+            background-color: #FFDDEE;
+            padding: 20px;
+            border-bottom: 5px solid #FFB6C1;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            animation: slideInDown 1s ease-in-out;
+        }
+        @keyframes slideInDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+        header::before {
+            content: "❀";
+            font-size: 2em;
+            color: #FF69B4;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #FF69B4;
+            margin: 0;
+        }
+        .section {
+            padding: 20px;
+            margin: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .interactive-message {
+            cursor: pointer;
+            color: #FF1493;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .interactive-message:hover {
+            color: #FF69B4;
+            transform: scale(1.1);
+        }
+        footer {
+            background-color: #FFDDEE;
+            padding: 10px;
+            border-top: 5px solid #FFB6C1;
+            width: 100%;
+            text-align: center;
+            margin-top: auto;
+            z-index: 2;
+            animation: slideInUp 1s ease-in-out;
+        }
+        @keyframes slideInUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+        .heart {
+            font-size: 2em;
+            color: #FF1493;
+        }
+        .star {
+            font-size: 1.5em;
+            color: #FFD700;
+        }
+        .surprise-box {
+            background-color: #FF69B4;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            cursor: pointer;
+            position: relative;
+            margin: 10px 0;
+            transition: all 0.3s ease-in-out;
+        }
+        .surprise-message {
+            display: none;
+            background: #FFB6C1;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+        .surprise-image {
+            display: none; /* Ocultar imágenes por defecto */
+            width: 150px; /* Tamaño fijo para todas las imágenes */
+            height: auto;
+            margin: 5px;
+            transition: opacity 0.3s ease-in-out;
+        }
+        #surprise-image-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .task-list {
+            text-align: center;
+            margin: 20px auto;
+            max-width: 600px;
+            list-style-type: none;
+            padding: 0;
+        }
+        .task-list li {
+            background-color: #FFB6C1;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-size: 1.1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .task-list li input {
+            margin-right: 10px;
+        }
+        .quote-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .quote-box {
+            background-color: #FF69B4;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            width: 300px;
+            text-align: center;
+        }
+        .quote-box p {
+            font-style: italic;
+        }
+        audio {
+            display: none;
+        }
+        @keyframes openBox {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #FFB6C1;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hola, Nagesita 💖</h1>
+        <div class="heart">❤️</div>
+    </header>
+
+    <section class="section">
+        <h2>Sobre Nosotros</h2>
+        <p>Desde el primer momento que te vi, supe que había algo especial en ti. Mi intención no es jugar ni tomar esto a la ligera. Quiero conocerte mejor y compartir momentos juntos, construyendo algo verdadero y duradero.</p>
+    </section>
+
+    <section class="section">
+        <h2>Mensajes Interactivos</h2>
+        <p class="interactive-message" onclick="showAlert()">Haz clic aquí para un mensaje especial 💌</p>
+        <p class="interactive-message" onmouseover="showHoverMessage()" onmouseout="hideHoverMessage()">Pasa el ratón por aquí para un mensaje encantador 🌟</p>
+        <p id="hover-message" style="display: none; color: #FF1493;">Eres mi sol en los días nublados.☀️</p>
+    </section>
+
+    <section class="section">
+        <h2>Abre la Caja de Sorpresas</h2>
+        <div class="surprise-box" onclick="revealSurprise()">Abrir Caja</div>
+        <p id="surprise-message" class="surprise-message">¡Eres mi persona favorita en el mundo! 🌍❤️</p>
+        <div id="surprise-image-container">
+            <img class="surprise-image" src="hello.jpg" alt="Sorpresa">
+            <img class="surprise-image" src="image1.jpg" alt="Imagen 1">
+            <img class="surprise-image" src="image2.jpg" alt="Imagen 2">
+            <img class="surprise-image" src="image3.jpg" alt="Imagen 3">
+            <img class="surprise-image" src="image4.jpg" alt="Imagen 4">
+            <img class="surprise-image" src="image5.jpg" alt="Imagen 5">
+        </div>
+    </section>
+
+    
+            <section class="section">
+    <h2>Tareas de Amor</h2>
+    <ul class="task-list">
+        <li><input type="checkbox" id="task1"><label for="task1">1. Cita romántica bajo las estrellas.</label></li>
+        <li><input type="checkbox" id="task2"><label for="task2">2. Escribir una carta de amor a mano.</label></li>
+        <li><input type="checkbox" id="task3"><label for="task3">3. Preparar una cena especial con tus platos favoritos.</label></li>
+        <li><input type="checkbox" id="task4"><label for="task4">4. Crear una lista de canciones que nos recuerden momentos juntos.</label></li>
+        <li><input type="checkbox" id="task5"><label for="task5">5. Hacer una caminata al atardecer.</label></li>
+        <li><input type="checkbox" id="task6"><label for="task6">6. Ver una película romántica juntos.</label></li>
+        <li><input type="checkbox" id="task7"><label for="task7">7. Escribir un poema sobre nuestro amor.</label></li>
+        <li><input type="checkbox" id="task8"><label for="task8">8. Hacer un álbum de fotos de momentos especiales.</label></li>
+        <li><input type="checkbox" id="task9"><label for="task9">9. Sorprenderte con un regalo inesperado.</label></li>
+        <li><input type="checkbox" id="task10"><label for="task10">10. Pasar un día entero sin tecnología y solo disfrutar de nuestra compañía.</label></li>
+        <li><input type="checkbox" id="task11"><label for="task11">11. Ir a un lugar que siempre has querido visitar.</label></li>
+        <li><input type="checkbox" id="task12"><label for="task12">12. Hacer un picnic en el parque.</label></li>
+        <li><input type="checkbox" id="task13"><label for="task13">13. Bailar bajo la luna.</label></li>
+        <li><input type="checkbox" id="task14"><label for="task14">14. Cantar nuestra canción favorita juntos.</label></li>
+        <li><input type="checkbox" id="task15"><label for="task15">15. Hacer una lista de sueños y metas juntos.</label></li>
+        <li><input type="checkbox" id="task16"><label for="task16">16. Ver el amanecer juntos.</label></li>
+        <li><input type="checkbox" id="task17"><label for="task17">17. Hacer un maratón de películas románticas.</label></li>
+        <li><input type="checkbox" id="task18"><label for="task18">18. Crear un jardín juntos.</label></li>
+        <li><input type="checkbox" id="task19"><label for="task19">19. Jugar un juego de mesa juntos.</label></li>
+        <li><input type="checkbox" id="task20"><label for="task20">20. Escribir un diario de nuestros momentos juntos.</label></li>
+        <li><input type="checkbox" id="task21"><label for="task21">21. Hacer una tarde de manualidades juntos.</label></li>
+        <li><input type="checkbox" id="task22"><label for="task22">22. Cocinar juntos una receta nueva.</label></li>
+        <li><input type="checkbox" id="task23"><label for="task23">23. Leer un libro en voz alta el uno al otro.</label></li>
+        <li><input type="checkbox" id="task24"><label for="task24">24. Ir a una feria o festival local.</label></li>
+        <li><input type="checkbox" id="task25"><label for="task25">25. Hacer un proyecto de arte juntos.</label></li>
+        <li><input type="checkbox" id="task26"><label for="task26">26. Visitar un museo o galería de arte.</label></li>
+        <li><input type="checkbox" id="task27"><label for="task27">27. Hacer una búsqueda del tesoro en la ciudad.</label></li>
+        <li><input type="checkbox" id="task28"><label for="task28">28. Escribir una historia corta juntos.</label></li>
+        <li><input type="checkbox" id="task29"><label for="task29">29. Hacer una lista de nuestras canciones favoritas y crear una playlist.</label></li>
+        <li><input type="checkbox" id="task30"><label for="task30">30. Hacer un reto de fotografía de cosas que nos recuerden a nosotros.</label></li>
+    </ul>
+</section>
+
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>Citas Inspiradoras</h2>
+        <div class="quote-container">
+            <div class="quote-box">
+                <p>"En cada mirada tuya, encuentro la promesa de un futuro lleno de amor."</p>
+            </div>
+            <div class="quote-box">
+                <p>"Eres mi sueño hecho realidad, el deseo de mi corazón y la luz de mi vida."</p>
+            </div>
+            <div class="quote-box">
+                <p>"Cada momento contigo es un tesoro que guardaré en mi corazón para siempre."</p>
+            </div>
+            <div class="quote-box">
+                <p>"Tu sonrisa es el faro que ilumina mi camino en los días más oscuros."</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024. Hecho con amor para Nagely.</p>
+    </footer>
+
+    <script>
+        function showAlert() {
+            alert("¡Eres la luz de mi vida!");
+        }
+
+        function showHoverMessage() {
+            document.getElementById('hover-message').style.display = 'block';
+        }
+
+        function hideHoverMessage() {
+            document.getElementById('hover-message').style.display = 'none';
+        }
+
+        function revealSurprise() {
+            document.getElementById('surprise-message').style.display = 'block';
+            let images = document.querySelectorAll('.surprise-image');
+            images.forEach(img => img.style.display = 'inline-block');
+        }
+    </script>
+</body>
+</html>
